@@ -1,5 +1,12 @@
+require 'httparty'
+require 'json'
 class WordGuesserGame
   attr_accessor :word, :guesses, :wrong_guesses
+
+  def self.get_random_word
+    response = HTTParty.post('http://randomword.saasbook.info/RandomWord')
+    response.parsed_response
+  end
 
   def initialize(word)
     @word = word
