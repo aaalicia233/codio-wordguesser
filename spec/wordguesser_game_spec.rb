@@ -9,7 +9,7 @@ describe WordGuesserGame do
     end
   end
 
-  describe 'new', pending: true do
+  describe 'new' do
     it "takes a parameter and returns a WordGuesserGame object" do
       @game = described_class.new('glorp')
       expect(@game).to be_an_instance_of(described_class)
@@ -19,7 +19,7 @@ describe WordGuesserGame do
     end
   end
 
-  describe 'guessing', pending: true do
+  describe 'guessing' do
     context 'correctly' do
       before do
         @game = described_class.new('garply')
@@ -100,7 +100,7 @@ describe WordGuesserGame do
     end
   end
 
-  describe 'displayed word with guesses', pending: true do
+  describe 'displayed word with guesses' do
     before do
       @game = described_class.new('banana')
     end
@@ -124,17 +124,17 @@ describe WordGuesserGame do
       @game = described_class.new('dog')
     end
 
-    it 'is win when all letters guessed', pending: true do
+    it 'is win when all letters guessed' do
       guess_several_letters(@game, 'ogd')
       expect(@game.check_win_or_lose).to eq(:win)
     end
 
-    it 'is lose after 7 incorrect guesses', pending: true do
+    it 'is lose after 7 incorrect guesses' do
       guess_several_letters(@game, 'tuvwxyz')
       expect(@game.check_win_or_lose).to eq(:lose)
     end
 
-    it 'continues play if neither win nor lose', pending: true do
+    it 'continues play if neither win nor lose' do
       guess_several_letters(@game, 'do')
       expect(@game.check_win_or_lose).to eq(:play)
     end
